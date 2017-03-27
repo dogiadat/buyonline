@@ -26,8 +26,8 @@ h1 Tạo nhà hàng mới
             br
             .col-xs-6.col-xs-offset-4
               #restaurant-map style="width: 400px; height: 200px"
-            = f.hidden_field :lat, class: "restaurant-lat"
-            = f.hidden_field :long, class: "restaurant-long"
+            = f.hidden_field :lat, id: "restaurant-lat"
+            = f.hidden_field :long, id: "restaurant-long"
           br
           .row
             .col-xs-4= f.label :min_price, "Khoảng gía (đơn vị: đồng)"
