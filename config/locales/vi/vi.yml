@@ -52,3 +52,7 @@ vi:
       register_restaurant: Đăng ký nhà hàng
       bill: Tra cứu đơn hàng
       select_restaurant: Chọn nhà hàng
+  helpers:
+    submit:
+      create: "Thêm mới"
+      update: "Cập nhật"

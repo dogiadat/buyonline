@@ -1,3 +1,26 @@
 h1 Quản lý nhà hàng
 = link_to "Thêm nhà hàng mới", new_admin_restaurant_path, class: "btn btn-primary btn-flat"
 
+.row
+  .col-xs-12
+    .box
+      .box-header
+        h3.box-title Danh sách nhà hàng
+      .box-body
+        table.table.table-bordered.table-hover
+          thead
+            tr
+              th Số thứ tự
+              th Tên nhà hàng
+              th Số món ăn
+              th Thao tác
+          tbody
+            - @restaurants.order(created_at: :desc).each_with_index do |restaurant, index|
+              tr
+                td= index + 1
+                td= restaurant.name
+                td= restaurant.foods.size
+                td
+                  = link_to "Sửa", edit_admin_restaurant_path(restaurant)
+                  | &nbsp&nbsp
+                  = link_to "Xóa"

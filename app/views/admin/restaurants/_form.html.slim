@@ -1,0 +1,51 @@
+= form_for [:admin, @restaurant] do |f|
+  .row
+    .col-xs-12
+      = render "shared/error_messages", object: @restaurant
+  .row
+    .col-xs-4= f.label :name
+    .col-xs-8= f.text_field :name, class: "form-control"
+  br
+  .row
+    .col-xs-4= label_tag :restaurant_categories, "Danh mục nhà hàng"
+    .col-xs-8= select_tag :restaurant_categories, options_for_select(Category.restaurant.pluck(:name, :id), @restaurant.restaurant_categories.pluck(:category_id)),
+      placeholder: "Chọn danh mục nhà hàng", multiple: true, class: "form-control select2"
+  br
+
+  .row
+    .col-xs-4= f.label :address
+    .col-xs-8= f.text_field :address, class: "form-control", id: "restaurant-address"
+    br
+    br
+    .col-xs-6.col-xs-offset-4
+      #restaurant-map style="width: 400px; height: 200px"
+    = f.hidden_field :lat, id: "restaurant-lat"
+    = f.hidden_field :long, id: "restaurant-long"
+  br
+  .row
+    .col-xs-4= f.label :min_price, "Khoảng gía (đơn vị: đồng)"
+    .col-xs-1.no-padding.text-center Từ
+    .col-xs-2.no-padding= f.text_field :min_price, class: "form-control"
+    .col-xs-1.no-padding.text-center Đến
+    .col-xs-2.no-padding= f.text_field :max_price, class: "form-control"
+  br
+  .row
+    .col-xs-4= f.label :open_time, "Thời gian giao hàng"
+    .col-xs-1.no-padding.text-center Từ
+    .col-xs-2.no-padding= f.time_field :open_time, class: "form-control"
+    .col-xs-1.no-padding.text-center Đến
+    .col-xs-2.no-padding= f.time_field :close_time, class: "form-control"
+  br
+  .row
+    .col-xs-4= f.label :free_delivery_fee
+    .col-xs-4= f.number_field :free_delivery_fee, step: 1000, class: "form-control"
+  br
+  .row
+    .col-xs-4= f.label :delivery_fee, "Chi phí giao hàng (/1km)"
+    .col-xs-4= f.number_field :delivery_fee, step: 1000, class: "form-control"
+  br
+  .row
+    .col-xs-4= f.label :description
+    .col-xs-8= f.text_area :description, class: "form-control", style: "resize: vertical;"
+  br
+  .text-center= f.submit yield: :submit, class: "btn btn-primary btn-flat"
