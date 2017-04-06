@@ -1,0 +1,62 @@
+.section
+  .container
+    .row
+      .col-xs-12
+        h2.text-center Xác nhận đơn hàng
+      br
+      br
+      br
+      .col-xs-12
+        .row
+          .col-xs-3
+            p Tên người nhận:
+            p Số điện thoại:
+            p Địa chỉ:
+            p Ghi chú:
+          .col-xs-9
+            p= @order[:name]
+            p= @order[:phone]
+            p= @order[:address]
+            p= @order[:note]
+      .col-xs-12
+        br
+        br
+        table.table.table-bordered
+          thead
+            th STT
+            th Tên món
+            th Số lượng
+            th Đơn gía
+            th Tổng
+          tbody
+            - if cookies[:foods]
+              - food_index = 0
+              - total_price = @order[:total_delivery_fee].to_i
+              - JSON.parse(cookies[:foods]).each do |food_id, count|
+                - if @restaurant.foods.pluck(:id).include? food_id.to_i
+                  - food = Food.find(food_id)
+                  - food_index += 1
+                  - total_price += count * food.price
+                  tr
+                    td= food_index
+                    td= food.try :name
+                    td= count
+                    td= food.try :price
+                    td= count * food.price
+        p Phí vận chuyển: #{@order[:total_delivery_fee]} VNĐ
+        p style="font-weight: bold" Tổng tiền: #{total_price} VNĐ
+      br
+      br
+      hr
+      .col-xs-12
+        .pull-left= link_to "Bỏ qua", @restaurant, class: "btn btn-default btn-flat btn-lg"
+        .pull-right
+          = form_for [@restaurant, @restaurant.bills.build] do |f|
+            = f.hidden_field :restaurant_id
+            = f.hidden_field :total, value: total_price.to_i
+            = f.hidden_field :ship_price, value: @order[:total_delivery_fee]
+            = f.hidden_field :recipient_name, value: @order[:name]
+            = f.hidden_field :recipient_phone, value: @order[:phone]
+            = f.hidden_field :recipient_address, value: @order[:address]
+            = f.hidden_field :note, value: @order[:note]
+            = f.submit "Xác nhận", class: "btn btn-danger btn-flat btn-lg"

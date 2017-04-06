@@ -7,7 +7,7 @@ h1.mb-20 Quản lý nhà hàng
       .box-header
         h3.box-title Danh sách nhà hàng đang chờ xử lý
       .box-body
-        table.table.table-bordered.table-hover
+        table.table.table-bordered.table-hover.data-table
           thead
             tr
               th Số thứ tự
@@ -19,7 +19,7 @@ h1.mb-20 Quản lý nhà hàng
               tr
                 td= index + 1
                 td= restaurant.name
-                td= restaurant.manager.name
+                td= restaurant.manager.try :name
                 td
                   = link_to "Chi tiết", admin_restaurant_path(restaurant)
 
@@ -29,7 +29,7 @@ h1.mb-20 Quản lý nhà hàng
       .box-header
         h3.box-title Danh sách nhà hàng
       .box-body
-        table.table.table-bordered.table-hover
+        table.table.table-bordered.table-hover.data-table
           thead
             tr
               th Số thứ tự

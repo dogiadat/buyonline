@@ -63,6 +63,6 @@ class Admin::RestaurantsController < Admin::BaseController
 
   def restaurant_for_select
     @restaurant_for_select = User.has_no_restaurant.pluck(:name, :id)
-    @restaurant_for_select << [@restaurant.manager.name, @restaurant.manager.id] unless @restaurant.new_record?
+    @restaurant_for_select << [@restaurant.manager.try(:name), @restaurant.manager.try(:id)] unless @restaurant.new_record?
   end
 end

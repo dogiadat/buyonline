@@ -49,7 +49,7 @@ $(document).ready(function(){
     //   "autoWidth": false
     // });
 
-    $(".table").DataTable({
+    $(".data-table").DataTable({
       "language": {
         "sProcessing":   "Đang xử lý...",
         "sLengthMenu":   "Xem _MENU_ mục",

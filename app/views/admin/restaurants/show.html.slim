@@ -4,13 +4,13 @@ h1 Chi tiết nhà hàng
     .box
       .box-body
         = image_tag(@restaurant.url_avatar, class: "thumb-image")
-        table.col-xs-12.table
+        table.col-xs-12.table.data-table
           tr
             th.col-xs-5 Tên nhà hàng
             td.col-xs-7= @restaurant.name
           tr
             th Quản lý nhà hàng
-            td= @restaurant.manager.name
+            td= @restaurant.manager.try :name
           tr
             th Danh mục
             td= convert_list_categories @restaurant.restaurant_categories

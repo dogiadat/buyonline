@@ -41,6 +41,11 @@ class RestaurantsController < ApplicationController
     end
   end
 
+  def order
+    @order = {name: params[:name], phone: params[:phone], address: params[:address], note: params[:note], total_delivery_fee: params[:total_delivery_fee]}
+    render :order
+  end
+
   private
   def restaurant_params
     params[:restaurant][:status] = :pending

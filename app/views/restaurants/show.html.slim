@@ -1,3 +1,6 @@
+css:
+  .pac-container{z-index:2000 !important;}
+
 .section
   .container
     .info-detail-restaurant
@@ -113,19 +116,6 @@
                                 .cart-food-remove
                                   a title="Xóa món ăn" href="#"
                                     i.fa.fa-trash
-                        / li.clearfix.cart-food-item
-                        /   .pull-left
-                        /     .update-product
-                        /       a.increase-food title="Tăng thêm một" href="#"
-                        /         i.fa.fa-plus-circle
-                        /       span.count 12
-                        /       a.decrease-food title="Gỉam xuống một" href="#"
-                        /         i.fa.fa-minus-circle
-                        /   .cart-food-name.pull-left Khoai tây chiên
-                        /   .cart-food-price.pull-right.text-spl-color 20000
-                        /   .cart-food-remove
-                        /     a.remove-food title="Xóa món ăn" href="#"
-                        /       i.fa.fa-trash
                       .order-item-total
                         p
                           span.title.col-xs-7#delivery_fee Phí vận chuyển:
@@ -143,10 +133,40 @@
               | promotion
             #comment.tab-pane
               | comment
+= render "order_modal"
+
+
 
 javascript:
   $(document).ready(function(){
+    $('#map').locationpicker({
+      location: {latitude: #{@restaurant.lat}, longitude: #{@restaurant.long}},
+      inputBinding: {
+        latitudeInput: $('#destination-lat'),
+        longitudeInput: $('#destination-long'),
+        locationNameInput: $('#destination-address')
+      },
+      enableAutocomplete: true
+    });
     calcTotalPrice();
+  });
+
+  $(document).on("change", "#destination-address", function(e){
+    calculateDistances();
+  });
+
+  $(document).on("click", ".custom-checkout", function(e) {
+    if(parseInt($("#total-price").text()) < #{@restaurant.min_price}) {
+      e.preventDefault();
+      alert("Bạn phải chọn ít nhất 1 món và đơn hàng phải có gía trị lớn hơn #{@restaurant.min_price} VNĐ");
+    }
+    else
+      $('#orderModal').modal("show");
+  });
+
+  $('#orderModal').on('shown.bs.modal', function () {
+    $('#map').locationpicker('autosize');
+    google.maps.event.trigger(map, "resize");
   });
 
   if (!!$.cookie("foods")) {
@@ -169,7 +189,7 @@ javascript:
   }).on("click", ".fa-minus-circle", function(e){
     e.preventDefault();
     var count = parseInt($(this).parent().prev().text());
-    if(count > 0)
+    if(count > 1)
       count--;
     $(this).parent().prev().text(count);
     $li_elm = $(this).parent().parent().parent().parent()
@@ -196,3 +216,98 @@ javascript:
     })
     $("#total-price").text(total);
   }
+
+  var map;
+  var geocoder;
+  var bounds = new google.maps.LatLngBounds();
+  var markersArray = [];
+  var origin = new google.maps.LatLng(#{@restaurant.lat}, #{@restaurant.long});
+  // var origin;
+  var destination;
+  //var destinationB = new google.maps.LatLng(50.087, 14.421);
+
+  var destinationIcon = 'https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=D|FF0000|000000';
+  var originIcon = 'https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=S|FFFF00|000000';
+
+  function initialize() {
+    var opts = {
+      center: new google.maps.LatLng(21.037297, 105.781689),
+      zoom: 20
+    };
+    map = new google.maps.Map(document.getElementById('map-canvas'), opts);
+    geocoder = new google.maps.Geocoder();
+    addMarker("#{@restaurant.address}", false);
+  }
+
+  function calculateDistances() {
+    // origin = document.getElementById('source').value;
+    destination = document.getElementById('destination-address').value;
+    var service = new google.maps.DistanceMatrixService();
+    service.getDistanceMatrix(
+      {
+        origins: [origin],
+        destinations: [destination],
+        travelMode: google.maps.TravelMode.DRIVING,
+        unitSystem: google.maps.UnitSystem.METRIC,
+        avoidHighways: false,
+        avoidTolls: false
+      }, calcDistance);
+  }
+
+  function calcDistance(response, status) {
+    if (status != google.maps.DistanceMatrixStatus.OK) {
+      alert('Error was: ' + status);
+    } else {
+      var origins = response.originAddresses;
+      var destinations = response.destinationAddresses;
+      deleteOverlays();
+      for (var i = 0; i < origins.length; i++) {
+        var results = response.rows[i].elements;
+        addMarker("#{@restaurant.address}", false);
+        for (var j = 0; j < results.length; j++) {
+          addMarker(destinations[j], true);
+          // display output
+          var delivery_fee = results[j].distance.value * #{@restaurant.delivery_fee} / 1000
+          $("#total_delivery_fee").val(delivery_fee);
+          $("#output").html("Khoảng cách: " + results[j].distance.text + "<br/>Phí vận chuyển: " + delivery_fee + " VNĐ");
+
+          // outputDiv.innerHTML += origins[i] + ' to ' + destinations[j]
+          //   + ': ' + results[j].distance.text + ' in '
+          //   + results[j].duration.text + '<br>';
+        }
+      }
+    }
+  }
+
+  function addMarker(location, isDestination) {
+    var icon;
+    if (isDestination) {
+      icon = destinationIcon;
+    } else {
+      icon = originIcon;
+    }
+    geocoder.geocode({'address': location}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        bounds.extend(results[0].geometry.location);
+        map.fitBounds(bounds);
+        var marker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location,
+          icon: icon
+        });
+        markersArray.push(marker);
+      } else {
+        alert('Geocode was not successful for the following reason: '
+          + status);
+      }
+    });
+  }
+
+  function deleteOverlays() {
+    for (var i = 0; i < markersArray.length; i++) {
+      markersArray[i].setMap(null);
+    }
+    markersArray = [];
+  }
+
+  google.maps.event.addDomListener(window, 'load', initialize);

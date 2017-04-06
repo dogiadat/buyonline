@@ -4,7 +4,7 @@ class Food < ApplicationRecord
   belongs_to :category
   belongs_to :restaurant
 
-  # mount_uploader :url_avatar, ImageUploader
+  mount_uploader :url_avatar, ImageUploader
 
   enum status: [:sell, :sold]
 

@@ -24,5 +24,12 @@ Rails.application.routes.draw do
 
   resources :restaurants
 
+  resources :restaurants do
+    post "order", on: :member
+    resources :bills
+  end
+
+
+
   get "/*page", to: "pages#show"
 end
