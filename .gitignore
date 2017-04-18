@@ -20,6 +20,4 @@
 # Ignore Byebug command history file.
 .byebug_history
 spec/
-config/database.yml
-.env
 public/uploads/

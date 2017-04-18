@@ -36,7 +36,8 @@
           .hover14.column
             .agile_top_brand_left_grid.box-hot-restaurant
               .agile_top_brand_left_grid_pos
-                img.img-responsive[src="http://localhost:3000/assets/images/offer.png" alt=" "]
+                / img.img-responsive[src="http://localhost:3000/assets/images/offer.png" alt=" "]
+                = image_tag "images/offer.png", class: "img-responsive"
               .agile_top_brand_left_grid1
                 .image-hot-restaurant
                   = link_to restaurant do
