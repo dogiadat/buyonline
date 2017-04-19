@@ -26,7 +26,7 @@ class Restaurant < ApplicationRecord
   validate :validate_form
 
   ransacker :avg_rate do |parent|
-    Arel.sql "(SELECT AVG(vote) FROM `rates` WHERE restaurant_id=restaurants.id)"
+    Arel.sql "(SELECT AVG(vote) FROM rates WHERE restaurant_id=restaurants.id)"
   end
 
   def calc_rate
