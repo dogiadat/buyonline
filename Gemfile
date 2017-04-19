@@ -88,3 +88,4 @@ gem "social-share-button"
 gem "ransack"
 gem "font-awesome-rails"
 gem "settingslogic"
+gem 'pg'
