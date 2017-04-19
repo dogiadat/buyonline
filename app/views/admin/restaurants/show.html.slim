@@ -21,7 +21,7 @@ h1 Chi tiết nhà hàng
             th Điện thoại
             td= @restaurant.phone
           tr
-            th Khoảng gía (đơn vị: đồng)
+            th Khoảng giá (đơn vị: đồng)
             td= "#{number_to_currency @restaurant.min_price} ~ #{number_to_currency @restaurant.max_price}"
           tr
             th Thời gian giao hàng

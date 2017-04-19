@@ -18,7 +18,7 @@ vi:
         name: Tên nhà hàng
         address: Địa chỉ
         phone: Số điện thoại
-        price_zone: Khoảng gía
+        price_zone: Khoảng giá
         open_time: Giờ mở cửa
         close_time: Giờ đóng cửa
         free_delivery_fee: Chi phí tối thiểu giao hàng miễn phí
@@ -27,14 +27,14 @@ vi:
         email: Địa chỉ email
         url_avatar: Ảnh đại diện
         description: Mô tả nhà hàng
-        min_price: Gía thấp nhất
-        max_price: Gía lớn nhất
+        min_price: giá thấp nhất
+        max_price: giá lớn nhất
         manager_id: Quản lý nhà hàng
         min_order: Gía đơn hàng nhỏ nhất
       food:
         category_id: Loại món ăn
         name: Tên món
-        price: Gía
+        price: giá
         description: Mô tả
     models:
       user: người dùng
