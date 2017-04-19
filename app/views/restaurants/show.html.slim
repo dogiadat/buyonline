@@ -36,7 +36,7 @@ scss:
             .col-xs-4.no-padding
               .restaurant-rate
             .col-xs-6.no-padding
-              span.rate-value= "#{@restaurant.rates.count} đánh gía"
+              span.rate-value= "#{@restaurant.rates.count} đánh giá"
         = social_share_button_tag(@restaurant.name, url: "lvh.me:3000/restaurants/#{@restaurant.id}")
         .info-delivery-restaurant
           .col-xs-4.column-info-deli
@@ -149,9 +149,9 @@ scss:
               | promotion
             #comment.tab-pane
               - unless user_signed_in?
-                p Bạn phải #{link_to "đăng nhập", new_user_session_path} để đánh gía và bình luận
+                p Bạn phải #{link_to "đăng nhập", new_user_session_path} để đánh giá và bình luận
               - else
-                p Đánh gía
+                p Đánh giá
                 .rating
                   = render "rating_form", restaurant: @restaurant
 
@@ -206,7 +206,7 @@ javascript:
   $(document).on("click", ".custom-checkout", function(e) {
     if(parseInt($("#total-price").text()) < #{@restaurant.min_price}) {
       e.preventDefault();
-      alert("Bạn phải chọn ít nhất 1 món và đơn hàng phải có gía trị lớn hơn #{@restaurant.min_price} VNĐ");
+      alert("Bạn phải chọn ít nhất 1 món và đơn hàng phải có giá trị lớn hơn #{@restaurant.min_price} VNĐ");
     }
     else
       $('#orderModal').modal("show");

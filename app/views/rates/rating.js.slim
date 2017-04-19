@@ -3,8 +3,8 @@
     var html = "#{j render 'restaurants/rating_form', restaurant: @restaurant}";
     $(".rating-star").html(html)
     $(".restaurant-rate").rateYo("rating", "#{@restaurant.calc_rate}")
-    $(".rate-value").html("#{@restaurant.rates.count} đánh gía")
+    $(".rate-value").html("#{@restaurant.rates.count} đánh giá")
 - else
   |
     $('#rating-star').rateYo("rating", "0");
-    alert("Bạn phải đăng nhập để đánh gía nhà hàng");
+    alert("Bạn phải đăng nhập để đánh giá nhà hàng");

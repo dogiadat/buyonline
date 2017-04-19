@@ -12,7 +12,10 @@
 
 ActiveRecord::Schema.define(version: 20170419065004) do
 
-  create_table "admins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.integer  "role",                   default: 0
     t.string   "encrypted_password",     default: "", null: false
@@ -30,7 +33,7 @@ ActiveRecord::Schema.define(version: 20170419065004) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
   end
 
-  create_table "bill_details", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "bill_details", force: :cascade do |t|
     t.integer  "bill_id"
     t.integer  "food_id"
     t.integer  "quantity"
@@ -39,7 +42,7 @@ ActiveRecord::Schema.define(version: 20170419065004) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "bills", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "bills", force: :cascade do |t|
     t.string   "bill_code"
     t.integer  "restaurant_id"
     t.integer  "total"
@@ -57,50 +60,50 @@ ActiveRecord::Schema.define(version: 20170419065004) do
     t.datetime "updated_at",        null: false
   end
 
-  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.integer  "category_type"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
 
-  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
-    t.text     "content",       limit: 65535
+    t.text     "content"
     t.integer  "restaurant_id"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
-  create_table "favorite_restaurants", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "favorite_restaurants", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "restaurant_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
 
-  create_table "food_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "food_categories", force: :cascade do |t|
     t.integer  "category_id"
     t.integer  "food_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  create_table "foods", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "foods", force: :cascade do |t|
     t.string   "name"
     t.integer  "price"
     t.integer  "restaurant_id"
     t.integer  "order_count"
     t.integer  "status"
     t.boolean  "is_sale"
-    t.text     "description",   limit: 65535
+    t.text     "description"
     t.string   "url_avatar"
     t.integer  "category_id"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
-  create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "images", force: :cascade do |t|
     t.string   "title"
     t.string   "url"
     t.integer  "imageable_id"
@@ -110,7 +113,7 @@ ActiveRecord::Schema.define(version: 20170419065004) do
     t.index ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id", using: :btree
   end
 
-  create_table "promotion_details", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "promotion_details", force: :cascade do |t|
     t.integer  "promotion_id"
     t.integer  "food_id"
     t.integer  "sale_off_price"
@@ -118,17 +121,17 @@ ActiveRecord::Schema.define(version: 20170419065004) do
     t.datetime "updated_at",     null: false
   end
 
-  create_table "promotions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "promotions", force: :cascade do |t|
     t.string   "name"
     t.datetime "start_time"
     t.datetime "end_time"
     t.integer  "restaurant_id"
-    t.text     "content",       limit: 65535
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.text     "content"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
-  create_table "rates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "rates", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "restaurant_id"
     t.integer  "vote"
@@ -136,14 +139,14 @@ ActiveRecord::Schema.define(version: 20170419065004) do
     t.datetime "updated_at",    null: false
   end
 
-  create_table "restaurant_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "restaurant_categories", force: :cascade do |t|
     t.integer  "category_id"
     t.integer  "restaurant_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
 
-  create_table "restaurants", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "restaurants", force: :cascade do |t|
     t.string   "name"
     t.string   "address"
     t.string   "phone"
@@ -159,24 +162,24 @@ ActiveRecord::Schema.define(version: 20170419065004) do
     t.string   "website"
     t.string   "email"
     t.string   "url_avatar"
-    t.float    "lat",               limit: 24
-    t.float    "long",              limit: 24
-    t.text     "description",       limit: 65535
+    t.float    "lat"
+    t.float    "long"
+    t.text     "description"
     t.integer  "min_order"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
-  create_table "slideshows", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "slideshows", force: :cascade do |t|
     t.string   "image_url"
     t.integer  "restaurant_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "email",                  default: "",   null: false
-    t.string   "encrypted_password",     default: "",   null: false
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
