@@ -5,11 +5,15 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def update
-    if @user.update_attributes is_active: !@user.is_active
-      flash[:success] = "Cập nhật thành công!"
-    else
-      flash[:danger] = "Cập nhật thất bại!"
+    @user.update_attributes is_active: !@user.is_active
+    respond_to do |format|
+      format.json {
+        render json: {
+          success: true,
+          is_active: @user.is_active,
+          id: @user.id
+        }
+      }
     end
-    redirect_back fallback_location: admin_users_path
   end
 end

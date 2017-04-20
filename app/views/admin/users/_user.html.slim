@@ -7,8 +7,8 @@ tr
   td= user.status
   td
     - if user.is_active
-      = link_to t(".deactivate"), [:admin, user],
-        method: :put, class: "btn btn-warning"
+      button class="btn btn btn-warning W80 btn-active-user" name="#{user.id}" type="submit" value="#{user.is_active}"
+        | Khóa
     - else
-      = link_to t(".activate"), [:admin, user],
-        method: :put, class: "btn btn-success"
+      button class="btn btn-success W80 btn-active-user" name="#{user.id}" type="submit" value="#{user.is_active}"
+        | Kích Hoạt
