@@ -166,8 +166,8 @@ ActiveRecord::Schema.define(version: 20170419065004) do
     t.float    "long"
     t.text     "description"
     t.integer  "min_order"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   create_table "slideshows", force: :cascade do |t|
