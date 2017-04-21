@@ -50,6 +50,10 @@
     .col-xs-2.no-padding= f.time_field :close_time, value: @restaurant.close_time, class: "form-control", required: true
   br
   .row
+    .col-xs-4= f.label :min_order
+    .col-xs-4= f.number_field :min_order, step: 1000, min: 0, class: "form-control", required: true
+  br
+  .row
     .col-xs-4= f.label :free_delivery_fee
     .col-xs-4= f.number_field :free_delivery_fee, step: 1000, min: 0, class: "form-control", required: true
   br
