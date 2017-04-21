@@ -73,7 +73,7 @@ User.create email: "dohongson@gmail.com",
 end
 
 #1
-restaurant1 = Restaurant.create name: "Kimsabao - Bánh Bao Kim Sa Hồng Kông - Shop Online", address: "7 Ngách 24 Ngõ 55, Hoàng Hoa Thám, Hà Nội, quận Ba Đình, Việt Nam", lat: 21.038613709124512,
+restaurant1 = Restaurant.create name: "Kimsabao - Bánh Bao Kim Sa Hồng Kông - Shop Online", address: "Ngõ 55, Hoàng Hoa Thám, Hà Nội, quận Ba Đình, Việt Nam", lat: 21.038613709124512,
   long: 105.82643513121343, phone: "0123456789", open_time: "07:30", close_time: "21:00", status: "opening",
   description: "Quán mát mẻ thích hợp tránh nắng.
     Trưa ở nhà nóng bức quá nên chạy qua đây trốn nắng. Quán có thiết kế đơn giản nhưng nhìn vẫn thu hút. Không gian thoáng mát, nhân viên dễ thương và lịch sự.
@@ -144,3 +144,19 @@ Food.create restaurant_id: 5, name: "Trà sữa khoai môn", url_avatar: File.op
 Food.create restaurant_id: 5, name: "Trà xanh Nhật Bản", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/5_3.jpg")), price: 30000, category_id: 1
 Food.create restaurant_id: 5, name: "Trà sữa socola", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/5_4.jpg")), price: 35000, category_id: 2
 Food.create restaurant_id: 5, name: "Trà sữa trân châu", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/5_5.jpg")), price: 35000, category_id: 2
+
+10.times do |i|
+  #5
+  restaurant5 = Restaurant.create name: "Ding Tea - Huỳnh Thúc Kháng #{i+1}", address: "47 Huỳnh Thúc Kháng, Hà Nội, quận Đống Đa, Việt Nam", lat: 21.01869589999999,
+    long: 105.81030899999996, phone: "0123456789", open_time: "09:00", close_time: "21:00", status: "opening",
+    description: "",
+    min_price: 25000, max_price: 45000, delivery_fee: 5000, email: "dogiadat95@gmail.com", manager_id: 5 + i + 1, url_avatar: File.open(File.join(Rails.root, "app/assets/images/restaurants/5.jpg"))
+  2.times do
+    RestaurantCategory.create restaurant_id: restaurant5.id, category_id: Category.restaurant.sample.id
+  end
+  Food.create restaurant_id: restaurant5.id, name: "Hồng trà sữa", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/5_1.jpg")), price: 30000, category_id: 1
+  Food.create restaurant_id: restaurant5.id, name: "Trà sữa khoai môn", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/5_2.jpg")), price: 35000, category_id: 1
+  Food.create restaurant_id: restaurant5.id, name: "Trà xanh Nhật Bản", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/5_3.jpg")), price: 30000, category_id: 1
+  Food.create restaurant_id: restaurant5.id, name: "Trà sữa socola", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/5_4.jpg")), price: 35000, category_id: 2
+  Food.create restaurant_id: restaurant5.id, name: "Trà sữa trân châu", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/5_5.jpg")), price: 35000, category_id: 2
+end
