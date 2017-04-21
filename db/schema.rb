@@ -153,7 +153,7 @@ ActiveRecord::Schema.define(version: 20170419065004) do
     t.integer  "status"
     t.string   "open_time"
     t.string   "close_time"
-    t.integer  "order_count"
+    t.integer  "order_count",       default: 0
     t.integer  "free_delivery_fee"
     t.integer  "delivery_fee"
     t.string   "website"

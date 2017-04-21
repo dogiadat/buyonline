@@ -44,18 +44,15 @@
 }
 
 .info-basic-hot-restaurant {
-  .name-hot-restaurant {
+  padding: 15px;
+  line-height: 1.2;
+
+  h4 {
     font-weight: bold;
-    font-size: 16px;
-    white-space: nowrap;
-    margin-top: 15px;
+    margin-bottom: 10px;
+
     a {
       color: #c00;
-      cursor: pointer;
-    }
-
-    a:hover {
-      text-decoration: underline;
     }
   }
 
@@ -76,6 +73,7 @@
 }
 
 .new-restaurant {
+  min-height: 360px;
   margin: 15px;
   border: 1px solid #ddd;
 
