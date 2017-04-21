@@ -2,18 +2,18 @@ class RestaurantsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @search = Restaurant.search params[:q]
+    @search = Restaurant.opening.search params[:q]
     @restaurants = (params[:category_id].present? ? @search.result.distinct.filter_category(params[:category_id]) : @search.result.distinct)
       .order_desc.page(params[:page]).per Settings.restaurants.page_size
     @categories = Category.restaurant.all
-    @hot_restaurants = Restaurant.hot_restaurant.limit(Settings.restaurants.hot_restaurant_limit)
+    @hot_restaurants = Restaurant.opening.hot_restaurant.limit(Settings.restaurants.hot_restaurant_limit)
   end
 
   def show
-    @restaurant = Restaurant.find_by id: params[:id]
   end
 
   def new
+    redirect_to root_url if user_signed_in? && current_user.restaurant.opening?
     @restaurant = current_user.restaurant if current_user && current_user.restaurant
   end
 
@@ -22,7 +22,7 @@ class RestaurantsController < ApplicationController
       (params[:restaurant_categories] || []).each do |category_id|
         @restaurant.restaurant_categories.create category_id: category_id
       end
-      flash[:success] = "Nhà hàng đưọc thêm mới thành công"
+      flash[:success] = "Nhà hàng đưọc thêm mới thành công, hãy đợi quản trị viên chấp nhận"
       redirect_to :back
     else
       render :new

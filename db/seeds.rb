@@ -77,7 +77,7 @@ restaurant1 = Restaurant.create name: "Kimsabao - Bánh Bao Kim Sa Hồng Kông 
   long: 105.82643513121343, phone: "0123456789", open_time: "07:30", close_time: "21:00", status: "opening",
   description: "Quán mát mẻ thích hợp tránh nắng.
     Trưa ở nhà nóng bức quá nên chạy qua đây trốn nắng. Quán có thiết kế đơn giản nhưng nhìn vẫn thu hút. Không gian thoáng mát, nhân viên dễ thương và lịch sự.
-    Nước uống thì nhìn hấp dẫn đẹp mắt. Bánh ngon.",
+    Nước uống thì nhìn hấp dẫn đẹp mắt. Bánh ngon.", min_order: 50000,
   min_price: 15000, max_price: 50000, delivery_fee: 5000, email: "dogiadat95@gmail.com", free_delivery_fee: 150000, manager_id: 1, url_avatar: File.open(File.join(Rails.root, "app/assets/images/restaurants/1.jpg"))
 
 2.times do
@@ -92,7 +92,7 @@ Food.create restaurant_id: 1, name: "Chân gà sốt cay Tứ Xuyên", url_avata
 #2
 restaurant2 = Restaurant.create name: "Soya Garden - Ô Chợ Dừa", address: "150b Ô Chợ Dừa, Hà Nội, quận Đống Đa, Việt Nam", lat: 21.020007,
   long: 105.8268405, phone: "0123456789", open_time: "09:00", close_time: "21:00", status: "opening",
-  description: "",
+  description: "", min_order: 50000,
   min_price: 31000, max_price: 69000, delivery_fee: 5000, email: "dogiadat95@gmail.com", manager_id: 2, url_avatar: File.open(File.join(Rails.root, "app/assets/images/restaurants/2.jpg"))
 2.times do
   RestaurantCategory.create restaurant_id: 2, category_id: Category.restaurant.sample.id
@@ -106,7 +106,7 @@ Food.create restaurant_id: 2, name: "Osaka Vanilla", url_avatar: File.open(File.
 #3
 restaurant3 = Restaurant.create name: "Yummi Yummi - Dimsum & Bánh Bao Bán Online", address: "1 Ngách 221 Thịnh Quang, Quận Đống Đa, Hà Nội", lat: 21.0077423,
   long: 105.81740339999999, phone: "0123456789", open_time: "09:00", close_time: "21:00", status: "opening",
-  description: "",
+  description: "", min_order: 50000,
   min_price: 50000, max_price: 500000, delivery_fee: 5000, email: "dogiadat95@gmail.com", manager_id: 3, url_avatar: File.open(File.join(Rails.root, "app/assets/images/restaurants/3.jpg"))
 2.times do
   RestaurantCategory.create restaurant_id: 3, category_id: Category.restaurant.sample.id
@@ -120,7 +120,7 @@ Food.create restaurant_id: 3, name: "Bánh bao Kim sa", url_avatar: File.open(Fi
 #4
 restaurant4 = Restaurant.create name: "Bún Miến Ngan - Cầu Giấy", address: "1 Ngách 221 Thịnh Quang, Quận Đống Đa, Hà Nội", lat: 21.031391,
   long: 105.79989599999999, phone: "0123456789", open_time: "09:00", close_time: "20:00", status: "opening",
-  description: "",
+  description: "", min_order: 50000,
   min_price: 30000, max_price: 40000, delivery_fee: 5000, email: "dogiadat95@gmail.com", manager_id: 4, url_avatar: File.open(File.join(Rails.root, "app/assets/images/restaurants/4.jpg"))
 2.times do
   RestaurantCategory.create restaurant_id: 4, category_id: Category.restaurant.sample.id
@@ -134,7 +134,7 @@ Food.create restaurant_id: 4, name: "Canh măng lòng mề", url_avatar: File.op
 #5
 restaurant5 = Restaurant.create name: "Ding Tea - Huỳnh Thúc Kháng", address: "47 Huỳnh Thúc Kháng, Hà Nội, quận Đống Đa, Việt Nam", lat: 21.01869589999999,
   long: 105.81030899999996, phone: "0123456789", open_time: "09:00", close_time: "21:00", status: "opening",
-  description: "",
+  description: "", min_order: 50000,
   min_price: 25000, max_price: 45000, delivery_fee: 5000, email: "dogiadat95@gmail.com", manager_id: 5, url_avatar: File.open(File.join(Rails.root, "app/assets/images/restaurants/5.jpg"))
 2.times do
   RestaurantCategory.create restaurant_id: 5, category_id: Category.restaurant.sample.id
@@ -149,7 +149,7 @@ Food.create restaurant_id: 5, name: "Trà sữa trân châu", url_avatar: File.o
   #5
   restaurant5 = Restaurant.create name: "Ding Tea - Huỳnh Thúc Kháng #{i+1}", address: "47 Huỳnh Thúc Kháng, Hà Nội, quận Đống Đa, Việt Nam", lat: 21.01869589999999,
     long: 105.81030899999996, phone: "0123456789", open_time: "09:00", close_time: "21:00", status: "opening",
-    description: "",
+    description: "", min_order: 50000,
     min_price: 25000, max_price: 45000, delivery_fee: 5000, email: "dogiadat95@gmail.com", manager_id: 5 + i + 1, url_avatar: File.open(File.join(Rails.root, "app/assets/images/restaurants/5.jpg"))
   2.times do
     RestaurantCategory.create restaurant_id: restaurant5.id, category_id: Category.restaurant.sample.id
