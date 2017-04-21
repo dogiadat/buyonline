@@ -30,6 +30,7 @@ vi:
         min_price: Gía thấp nhất
         max_price: Gía lớn nhất
         manager_id: Quản lý nhà hàng
+        min_order: Gía đơn hàng nhỏ nhất
       food:
         category_id: Loại món ăn
         name: Tên món

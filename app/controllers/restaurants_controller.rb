@@ -56,6 +56,6 @@ class RestaurantsController < ApplicationController
     params[:restaurant][:manager_id] = current_user.id
     params.require(:restaurant).permit :name, :address, :lat, :long, :min_price,
       :max_price, :open_time, :close_time, :free_delivery_fee, :delivery_fee,
-      :url_avatar, :description, :manager_id, :status, :phone, :email
+      :url_avatar, :description, :manager_id, :status, :phone, :email, :min_order
   end
 end

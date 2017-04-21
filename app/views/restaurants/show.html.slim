@@ -47,7 +47,10 @@ scss:
             p= number_to_currency @restaurant.min_order
           .col-xs-5.column-info-deli
             p.uppercase.light-grey Miễn phí vận chuyển
-            p= "Hóa đơn trên #{number_to_currency @restaurant.free_delivery_fee}" if @restaurant.free_delivery_fee
+            -  if @restaurant.free_delivery_fee
+              p= "Hóa đơn trên #{number_to_currency @restaurant.free_delivery_fee}"
+            - else
+              p Không miễn phí
   .order-online
     .container
       .row
@@ -146,7 +149,7 @@ scss:
             #restaurant_infomation.tab-pane
               p= @restaurant.description
             #promotion.tab-pane
-              | promotion
+              | Hiện tại nhà hàng không có chương trình khuyến mãi
             #comment.tab-pane
               - unless user_signed_in?
                 p Bạn phải #{link_to "đăng nhập", new_user_session_path} để đánh gía và bình luận
@@ -204,7 +207,7 @@ javascript:
   });
 
   $(document).on("click", ".custom-checkout", function(e) {
-    if(parseInt($("#total-price").text()) < #{@restaurant.min_price}) {
+    if(parseInt($("#total-price").text()) < #{@restaurant.min_order}) {
       e.preventDefault();
       alert("Bạn phải chọn ít nhất 1 món và đơn hàng phải có gía trị lớn hơn #{@restaurant.min_price} VNĐ");
     }
