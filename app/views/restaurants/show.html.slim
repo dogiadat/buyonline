@@ -14,7 +14,7 @@ scss:
   .container
     .info-detail-restaurant
       .image-restaurant.pull-left
-        = image_tag @restaurant.url_avatar unless @restaurant.url_avatar.blank?
+        = image_tag @restaurant.url_avatar
       .info-basic-restaurant.pull-left
         .kind-restaurant
           = convert_list_categories @restaurant.restaurant_categories
