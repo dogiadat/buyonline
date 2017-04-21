@@ -1,5 +1,5 @@
 class RatesController < ApplicationController
-  load_resource
+  load_and_authorize_resource
   def create
     if user_signed_in?
       @restaurant = Restaurant.find(params[:rate][:restaurant_id])

@@ -6,4 +6,8 @@ class Admin::BaseController < ActionController::Base
   def verify_admin
     redirect_to new_admin_session_path unless current_admin
   end
+
+  def current_ability
+    Ability.new current_admin, "admin"
+  end
 end

@@ -44,4 +44,8 @@ class User < ApplicationRecord
   def status
     is_active ? "Đang hoạt động" : "Đã bị khóa"
   end
+
+  def is_manager?
+    self.restaurant && self.restaurant.opening?
+  end
 end
