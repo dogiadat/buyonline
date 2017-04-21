@@ -120,3 +120,5 @@ vi:
       x_seconds:
         one: 1 giây
         other: "%{count} giây trước"
+  social_share_button:
+    share_to: Chia sẻ

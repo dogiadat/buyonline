@@ -517,6 +517,7 @@ ul.dropdown-menu.drp-mnu li a i {
 .agile_top_brand_left_grid1{
 	padding:1em;
 	border:1px solid #D7D7D7;
+  min-height: 400px;
 }
 .agile_top_brand_left_grid1 img{
 	margin:0 auto;
