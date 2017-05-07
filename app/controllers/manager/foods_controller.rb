@@ -8,6 +8,9 @@ class Manager::FoodsController < Manager::BaseController
   def new
   end
 
+  def edit
+  end
+
   def create
     if @food.save
       flash[:success] = "Thêm mới món ăn thành công"
@@ -15,6 +18,20 @@ class Manager::FoodsController < Manager::BaseController
     else
       render :new
     end
+  end
+
+  def update
+    if @food.update food_params
+      flash[:success] = "Cập nhật món ăn thành công"
+      redirect_to [:manager, :foods]
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @food.destroy
+    redirect_to :back
   end
 
   private

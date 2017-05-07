@@ -47,6 +47,7 @@ class Admin::RestaurantsController < Admin::BaseController
   def confirm
     if @restaurant.update status: "opening"
       flash[:success] = "Nhà hàng đã được chấp thuận"
+      NewRestaurantMailer.new_restaurant(@restaurant).deliver_now
       redirect_to admin_restaurants_path
     else
       flash[:danger] = "Không thể chấp thuận nhà hàng"

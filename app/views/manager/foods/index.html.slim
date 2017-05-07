@@ -24,4 +24,4 @@ h1 Quản lý món ăn
                 td
                   = link_to "Sửa", edit_manager_food_path(food)
                   | &nbsp&nbsp
-                  = link_to "Xóa"
+                  = link_to "Xóa", [:manager, food], method: :delete, data: {confirm: "Bạn xác nhận xóa món ăn?"}

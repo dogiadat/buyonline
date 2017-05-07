@@ -11,25 +11,25 @@
             .col-xs-8.col-xs-offset-2
               .row
                 .col-xs-4
-                  = label_tag :name, "Tên *"
+                  = label_tag :name, "Tên (*)"
                 .col-xs-8
                   = text_field_tag :name, "", class: "form-control", required: true
               br
               .row
                 .col-xs-4
-                  = label_tag :phone, "Số điện thoại *"
+                  = label_tag :phone, "Số điện thoại (*)"
                 .col-xs-8
                   = telephone_field_tag :phone, "", class: "form-control", required: true
               br
               .row
                 .col-xs-4
-                  = label_tag :email, "Địa chỉ email *"
+                  = label_tag :email, "Địa chỉ email (*)"
                 .col-xs-8
                   = email_field_tag :email, "", class: "form-control", required: true
               br
               .row
                 .col-xs-4
-                  = label_tag :address, "Địa chỉ giao hàng *"
+                  = label_tag :address, "Địa chỉ giao hàng (*)"
                 .col-xs-8
                   = text_field_tag :address, "", id: "destination-address", class: "form-control", required: true
                   = hidden_field_tag :total_delivery_fee, "", id: "total_delivery_fee"
@@ -42,7 +42,7 @@
                   #map-canvas style="width: 100%; height: 200px;"
               br
               .row
-                .col-xs-4= label_tag :earliest, "Thời gian nhận hàng *"
+                .col-xs-4= label_tag :earliest, "Thời gian nhận hàng (*)"
                 .col-xs-1.no-padding.text-center Từ
                 .col-xs-5.no-padding= datetime_local_field_tag :earliest, "", class: "form-control", required: true
                 br

@@ -10,5 +10,5 @@ class Food < ApplicationRecord
 
   scope :filter_category, ->(category_id){where category_id: category_id}
 
-  # validates :name, :price, presence: true
+  validates :name, :price, presence: true
 end

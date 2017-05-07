@@ -13,7 +13,7 @@ class RestaurantsController < ApplicationController
   end
 
   def new
-    redirect_to root_url if user_signed_in? && current_user.restaurant.opening?
+    redirect_to root_url if user_signed_in? && current_user.restaurant && current_user.restaurant.opening?
     @restaurant = current_user.restaurant if current_user && current_user.restaurant
   end
 
@@ -36,7 +36,7 @@ class RestaurantsController < ApplicationController
         @restaurant.restaurant_categories.find_or_create_by category_id: category_id
       end
       flash[:success] = "Nhà hàng đưọc thêm cập nhật thành công"
-      redirect_to :back
+      redirect_to [:new, :restaurant]
     else
       render :new
     end
