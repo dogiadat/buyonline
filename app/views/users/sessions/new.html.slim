@@ -46,4 +46,4 @@
               = f.label :remember_me, "Ghi nhớ đăng nhập"
         | Chưa có tài khoản? #{link_to "Đăng ký", new_user_registration_path}
       .cta
-        = link_to "Quên mật khẩu?", "#"
+        = link_to "Quên mật khẩu?", new_password_path(resource_name)

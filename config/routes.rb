@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: {sessions: "users/sessions", registrations: "users/registrations", omniauth_callbacks: "users/omniauth_callbacks"},
+  devise_for :users, controllers: {sessions: "users/sessions", registrations: "users/registrations", omniauth_callbacks: "users/omniauth_callbacks", passwords: "users/passwords", confirmations: "users/confirmations"},
     path: "", path_names: {sign_in: "login", sign_out: "logout", sign_up: "register"}
 
   root "pages#index"

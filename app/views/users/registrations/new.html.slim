@@ -48,4 +48,4 @@
           = f.text_field :address, placeholder: "Địa chỉ"
           = f.submit "Đăng ký"
       .cta
-        a href="#"  Quên mật khẩu?
+        = link_to "Quên mật khẩu?", new_password_path(resource_name)

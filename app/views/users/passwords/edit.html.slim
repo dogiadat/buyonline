@@ -1,0 +1,14 @@
+.w3_login
+  h3 Lấy lại mật khẩu
+  .w3_login_module
+    .module.form-module
+      div
+      .form
+        = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+          .errors= devise_error_messages!
+          = f.hidden_field :reset_password_token
+          = f.label :password, "Mật khẩu mới"
+          = f.password_field :password, autofocus: true, autocomplete: "off"
+          = f.label :password_confirmation, "Nhập lại mật khẩu"
+          = f.password_field :password_confirmation
+          = f.submit "Đổi mật khẩu"

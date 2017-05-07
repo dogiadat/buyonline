@@ -1,0 +1,10 @@
+.w3_login
+  h3 Quên mật khẩu
+  .w3_login_module
+    .module.form-module
+      div
+      .form
+        = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+          .errors= devise_error_messages!
+          = f.email_field :email, autofocus: true, placeholder: "Địa chỉ email"
+          = f.submit "Lấy lại mất khẩu"
