@@ -6,7 +6,7 @@ class Food < ApplicationRecord
 
   mount_uploader :url_avatar, ImageUploader
 
-  enum status: [:sell, :sold]
+  # enum status: [:sell, :sold]
 
   scope :filter_category, ->(category_id){where category_id: category_id}
 

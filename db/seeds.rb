@@ -99,11 +99,11 @@ restaurant1 = Restaurant.create name: "Kimsabao - Bánh Bao Kim Sa Hồng Kông 
 2.times do
   RestaurantCategory.create restaurant_id: 1, category_id: Category.restaurant.sample.id
 end
-Food.create restaurant_id: 1, name: "Bánh Bao Matcha Trứng muối", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/1_1.jpg")), price: 60000, category_id: 1
-Food.create restaurant_id: 1, name: "Chân Gà Sốt Tàu Xì", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/1_2.jpg")), price: 60000, category_id: 1
-Food.create restaurant_id: 1, name: "Kimsabao", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/1_3.jpg")), price: 60000, category_id: 2
-Food.create restaurant_id: 1, name: "Xá Xíu Nướng", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/1_4.jpg")), price: 60000, category_id: 2
-Food.create restaurant_id: 1, name: "Chân gà sốt cay Tứ Xuyên", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/1_5.jpg")), price: 60000, category_id: 2
+Food.create restaurant_id: 11, name: "Bánh Bao Matcha Trứng muối", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/1_1.jpg")), price: 60000, category_id: 1
+Food.create restaurant_id: 11, name: "Chân Gà Sốt Tàu Xì", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/1_2.jpg")), price: 60000, category_id: 1
+Food.create restaurant_id: 11, name: "Kimsabao", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/1_3.jpg")), price: 60000, category_id: 2
+Food.create restaurant_id: 11, name: "Xá Xíu Nướng", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/1_4.jpg")), price: 60000, category_id: 2
+Food.create restaurant_id: 11, name: "Chân gà sốt cay Tứ Xuyên", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/1_5.jpg")), price: 60000, category_id: 2
 
 #2
 restaurant2 = Restaurant.create name: "Soya Garden - Ô Chợ Dừa", address: "150b Ô Chợ Dừa, Hà Nội, quận Đống Đa, Việt Nam", lat: 21.020007,
@@ -113,11 +113,11 @@ restaurant2 = Restaurant.create name: "Soya Garden - Ô Chợ Dừa", address: "
 2.times do
   RestaurantCategory.create restaurant_id: 2, category_id: Category.restaurant.sample.id
 end
-Food.create restaurant_id: 2, name: "Shizouka Matcha", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/2_1.jpg")), price: 31000, category_id: 1
-Food.create restaurant_id: 2, name: "Tokyo Taro", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/2_2.jpg")), price: 39000, category_id: 1
-Food.create restaurant_id: 2, name: "Meiji Chokoreto", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/2_3.jpg")), price: 39000, category_id: 1
-Food.create restaurant_id: 2, name: "Good Day Hokkaido", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/2_4.jpg")), price: 39000, category_id: 2
-Food.create restaurant_id: 2, name: "Osaka Vanilla", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/2_5.jpg")), price: 39000, category_id: 2
+Food.create restaurant_id: 12, name: "Shizouka Matcha", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/2_1.jpg")), price: 31000, category_id: 1
+Food.create restaurant_id: 12, name: "Tokyo Taro", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/2_2.jpg")), price: 39000, category_id: 1
+Food.create restaurant_id: 12, name: "Meiji Chokoreto", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/2_3.jpg")), price: 39000, category_id: 1
+Food.create restaurant_id: 12, name: "Good Day Hokkaido", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/2_4.jpg")), price: 39000, category_id: 2
+Food.create restaurant_id: 12, name: "Osaka Vanilla", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/2_5.jpg")), price: 39000, category_id: 2
 
 #3
 restaurant3 = Restaurant.create name: "Yummi Yummi - Dimsum & Bánh Bao Bán Online", address: "1 Ngách 221 Thịnh Quang, Quận Đống Đa, Hà Nội", lat: 21.0077423,
@@ -127,11 +127,11 @@ restaurant3 = Restaurant.create name: "Yummi Yummi - Dimsum & Bánh Bao Bán Onl
 2.times do
   RestaurantCategory.create restaurant_id: 3, category_id: Category.restaurant.sample.id
 end
-Food.create restaurant_id: 3, name: "Bánh bao trứng sữa", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/3_1.jpg")), price: 31000, category_id: 1
-Food.create restaurant_id: 3, name: "Chân gà tàu xì (túi nhỏ 6 cái)", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/3_2.jpg")), price: 39000, category_id: 1
-Food.create restaurant_id: 3, name: "Bánh bao Trà xanh", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/3_3.jpg")), price: 39000, category_id: 1
-Food.create restaurant_id: 3, name: "Bánh bao Xá xíu", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/3_4.jpg")), price: 39000, category_id: 2
-Food.create restaurant_id: 3, name: "Bánh bao Kim sa", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/3_5.jpg")), price: 39000, category_id: 2
+Food.create restaurant_id: 13, name: "Bánh bao trứng sữa", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/3_1.jpg")), price: 31000, category_id: 1
+Food.create restaurant_id: 13, name: "Chân gà tàu xì (túi nhỏ 6 cái)", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/3_2.jpg")), price: 39000, category_id: 1
+Food.create restaurant_id: 13, name: "Bánh bao Trà xanh", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/3_3.jpg")), price: 39000, category_id: 1
+Food.create restaurant_id: 13, name: "Bánh bao Xá xíu", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/3_4.jpg")), price: 39000, category_id: 2
+Food.create restaurant_id: 13, name: "Bánh bao Kim sa", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/3_5.jpg")), price: 39000, category_id: 2
 
 #4
 restaurant4 = Restaurant.create name: "Bún Miến Ngan - Cầu Giấy", address: "1 Ngách 221 Thịnh Quang, Quận Đống Đa, Hà Nội", lat: 21.031391,
@@ -141,11 +141,11 @@ restaurant4 = Restaurant.create name: "Bún Miến Ngan - Cầu Giấy", address
 2.times do
   RestaurantCategory.create restaurant_id: 4, category_id: Category.restaurant.sample.id
 end
-Food.create restaurant_id: 4, name: "Bún ngan trộn", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/4_1.jpg")), price: 30000, category_id: 1
-Food.create restaurant_id: 4, name: "Bún ngan nước", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/4_2.jpg")), price: 35000, category_id: 1
-Food.create restaurant_id: 4, name: "Miến ngan trộn", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/4_3.jpg")), price: 30000, category_id: 1
-Food.create restaurant_id: 4, name: "Miến ngan nước", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/4_4.jpg")), price: 35000, category_id: 2
-Food.create restaurant_id: 4, name: "Canh măng lòng mề", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/4_5.jpg")), price: 35000, category_id: 2
+Food.create restaurant_id: 14, name: "Bún ngan trộn", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/4_1.jpg")), price: 30000, category_id: 1
+Food.create restaurant_id: 14, name: "Bún ngan nước", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/4_2.jpg")), price: 35000, category_id: 1
+Food.create restaurant_id: 14, name: "Miến ngan trộn", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/4_3.jpg")), price: 30000, category_id: 1
+Food.create restaurant_id: 14, name: "Miến ngan nước", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/4_4.jpg")), price: 35000, category_id: 2
+Food.create restaurant_id: 14, name: "Canh măng lòng mề", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/4_5.jpg")), price: 35000, category_id: 2
 
 #5
 restaurant5 = Restaurant.create name: "Ding Tea - Huỳnh Thúc Kháng", address: "47 Huỳnh Thúc Kháng, Hà Nội, quận Đống Đa, Việt Nam", lat: 21.01869589999999,
@@ -155,9 +155,9 @@ restaurant5 = Restaurant.create name: "Ding Tea - Huỳnh Thúc Kháng", address
 2.times do
   RestaurantCategory.create restaurant_id: 5, category_id: Category.restaurant.sample.id
 end
-Food.create restaurant_id: 5, name: "Hồng trà sữa", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/5_1.jpg")), price: 30000, category_id: 1
-Food.create restaurant_id: 5, name: "Trà sữa khoai môn", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/5_2.jpg")), price: 35000, category_id: 1
-Food.create restaurant_id: 5, name: "Trà xanh Nhật Bản", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/5_3.jpg")), price: 30000, category_id: 1
-Food.create restaurant_id: 5, name: "Trà sữa socola", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/5_4.jpg")), price: 35000, category_id: 2
-Food.create restaurant_id: 5, name: "Trà sữa trân châu", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/5_5.jpg")), price: 35000, category_id: 2
+Food.create restaurant_id: 15, name: "Hồng trà sữa", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/5_1.jpg")), price: 30000, category_id: 1
+Food.create restaurant_id: 15, name: "Trà sữa khoai môn", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/5_2.jpg")), price: 35000, category_id: 1
+Food.create restaurant_id: 15, name: "Trà xanh Nhật Bản", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/5_3.jpg")), price: 30000, category_id: 1
+Food.create restaurant_id: 15, name: "Trà sữa socola", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/5_4.jpg")), price: 35000, category_id: 2
+Food.create restaurant_id: 15, name: "Trà sữa trân châu", url_avatar: File.open(File.join(Rails.root, "app/assets/images/foods/5_5.jpg")), price: 35000, category_id: 2
 
