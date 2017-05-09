@@ -88,3 +88,5 @@ gem "social-share-button"
 gem "ransack"
 gem "font-awesome-rails"
 gem "settingslogic"
+gem 'pg'
+gem 'activerecord-session_store', github: 'rails/activerecord-session_store'

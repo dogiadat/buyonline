@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170419065004) do
+ActiveRecord::Schema.define(version: 20170510034000) do
 
   create_table "admins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
@@ -153,7 +153,7 @@ ActiveRecord::Schema.define(version: 20170419065004) do
     t.integer  "status"
     t.string   "open_time"
     t.string   "close_time"
-    t.integer  "order_count",       default: 0
+    t.integer  "order_count",                     default: 0
     t.integer  "free_delivery_fee"
     t.integer  "delivery_fee"
     t.string   "website"
@@ -163,8 +163,17 @@ ActiveRecord::Schema.define(version: 20170419065004) do
     t.float    "long",              limit: 24
     t.text     "description",       limit: 65535
     t.integer  "min_order"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+  end
+
+  create_table "sessions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "session_id",               null: false
+    t.text     "data",       limit: 65535
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["session_id"], name: "index_sessions_on_session_id", unique: true, using: :btree
+    t.index ["updated_at"], name: "index_sessions_on_updated_at", using: :btree
   end
 
   create_table "slideshows", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

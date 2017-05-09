@@ -34,6 +34,7 @@ h1.mb-20 Quản lý nhà hàng
             tr
               th Số thứ tự
               th Tên nhà hàng
+              th Chủ nhà hàng
               th Số món ăn
               th Thao tác
           tbody
@@ -41,6 +42,7 @@ h1.mb-20 Quản lý nhà hàng
               tr
                 td= index + 1
                 td= restaurant.name
+                td= restaurant.manager.name
                 td= restaurant.foods.size
                 td
                   = link_to "Sửa", edit_admin_restaurant_path(restaurant)
