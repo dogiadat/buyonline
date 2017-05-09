@@ -209,7 +209,7 @@ javascript:
   $(document).on("click", ".custom-checkout", function(e) {
     if(parseInt($("#total-price").text()) < #{@restaurant.min_order}) {
       e.preventDefault();
-      alert("Bạn phải chọn ít nhất 1 món và đơn hàng phải có giá trị lớn hơn #{@restaurant.min_price} VNĐ");
+      alert("Bạn phải chọn ít nhất 1 món và đơn hàng phải có giá trị lớn hơn #{@restaurant.min_order} VNĐ");
     }
     else
       $('#orderModal').modal("show");
@@ -318,9 +318,15 @@ javascript:
         for (var j = 0; j < results.length; j++) {
           addMarker(destinations[j], true);
           // display output
-          var delivery_fee = results[j].distance.value * #{@restaurant.delivery_fee} / 1000
-          $("#total_delivery_fee").val(delivery_fee);
-          $("#output").html("Khoảng cách: " + results[j].distance.text + "<br/>Phí vận chuyển: " + delivery_fee + " VNĐ");
+          if (parseInt($("#total-price").text()) < #{@restaurant.free_delivery_fee}) {
+            var delivery_fee = results[j].distance.value * #{@restaurant.delivery_fee} / 1000
+            $("#total_delivery_fee").val(delivery_fee);
+            $("#output").html("Khoảng cách: " + results[j].distance.text + "<br/>Phí vận chuyển: " + delivery_fee + " VNĐ");
+          }
+          else {
+            $("#total_delivery_fee").val(0);
+            $("#output").html("Miễn phí vận chuyển")
+          }
         }
       }
     }
