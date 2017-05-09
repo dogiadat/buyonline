@@ -37,7 +37,7 @@ scss:
               .restaurant-rate
             .col-xs-6.no-padding
               span.rate-value= "#{@restaurant.rates.count} đánh giá"
-        = social_share_button_tag(@restaurant.name, url: "lvh.me:3000/restaurants/#{@restaurant.id}")
+        = social_share_button_tag(@restaurant.name, url: request.original_url)
         .info-delivery-restaurant
           .col-xs-4.column-info-deli
             p.uppercase.light-grey Phí vận chuyển
