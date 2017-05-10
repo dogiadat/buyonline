@@ -7,6 +7,17 @@ GIT
       devise (>= 3.2)
 
 GIT
+  remote: https://github.com/rails/activerecord-session_store.git
+  revision: 42861d5288a6609c7ad6f6f9bbae32829cfda67c
+  specs:
+    activerecord-session_store (1.0.0)
+      actionpack (>= 4.0, < 5.2)
+      activerecord (>= 4.0, < 5.2)
+      multi_json (~> 1.11, >= 1.11.2)
+      rack (>= 1.5.2, < 3)
+      railties (>= 4.0, < 5.2)
+
+GIT
   remote: https://github.com/sinatra/sinatra.git
   revision: 8fdd35c731ec6915bae393c6383b2357450665f0
   branch: master
@@ -466,6 +477,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-session_store!
   better_errors
   bootstrap-sass
   cancancan
@@ -511,4 +523,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.13.7
+   1.14.6
